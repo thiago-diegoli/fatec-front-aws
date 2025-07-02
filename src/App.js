@@ -23,10 +23,10 @@ function App() {
     async function fetchData() {
       try {
         const userResponse = await axios.get(
-          "http://52.20.188.231:3000/usuarios"
+          "http://dsm-fatec-backend.duckdns.org/usuarios"
         );
         const productResponse = await axios.get(
-          "http://52.20.188.231:3000/produtos"
+          "http://dsm-fatec-backend.duckdns.org/produtos"
         );
         setUsers(userResponse.data);
         setProducts(productResponse.data);
