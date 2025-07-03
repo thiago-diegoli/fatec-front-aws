@@ -11,7 +11,7 @@ const S3Uploader = () => {
   useEffect(() => {
     async function fetchBuckets() {
       try {
-        const response = await axios.get('http://44.201.171.2:3000/buckets');
+        const response = await axios.get('http://dsm-fatec-backend.duckdns.org/buckets');
         setBuckets(response.data);
       } catch (error) {
         console.error('Erro ao carregar buckets:', error);
@@ -31,7 +31,7 @@ const S3Uploader = () => {
     formData.append('file', file);
 
     try {
-      await axios.post(`http://44.201.171.2:3000/buckets/${selectedBucket}/upload`, formData, {
+      await axios.post(`http://dsm-fatec-backend.duckdns.org/buckets/${selectedBucket}/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('Arquivo enviado com sucesso!');
@@ -44,7 +44,7 @@ const S3Uploader = () => {
   const handleBucketChange = async (bucketName) => {
     setSelectedBucket(bucketName);
     try {
-      const response = await axios.get(`http://44.201.171.2:3000/buckets/${bucketName}`);
+      const response = await axios.get(`http://dsm-fatec-backend.duckdns.org/buckets/${bucketName}`);
       setObjects(response.data);
     } catch (error) {
       console.error('Erro ao carregar objetos:', error);
