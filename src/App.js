@@ -28,8 +28,8 @@ function App() {
         const productResponse = await axios.get(
           "http://dsm-fatec-backend.duckdns.org/produtos"
         );
-        setUsers(userResponse.data);
-        setProducts(productResponse.data);
+        setUsers(userResponse.data.users || []);
+        setProducts(productResponse.data.products || []);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
       } finally {
